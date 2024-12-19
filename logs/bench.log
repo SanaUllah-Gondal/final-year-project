@@ -1,0 +1,171 @@
+2024-11-27 16:02:50,637 DEBUG cd /home/frappe/frappe-bench && python3 -m venv env
+2024-11-27 16:02:53,834 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install  --upgrade pip
+2024-11-27 16:02:55,902 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install  wheel
+2024-11-27 16:02:56,807 LOG Getting frappe
+2024-11-27 16:02:56,808 DEBUG cd /home/frappe/frappe-bench/apps && git clone https://github.com/frappe/frappe --branch v15.48.1 --depth 1 --origin upstream
+2024-11-27 16:03:00,472 LOG Installing frappe
+2024-11-27 16:03:00,472 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install  --upgrade -e /home/frappe/frappe-bench/apps/frappe 
+2024-11-27 16:03:38,822 DEBUG cd /home/frappe/frappe-bench/apps/frappe && yarn install --check-files --verbose
+2024-11-27 16:04:06,534 WARNING restart failed: Couldn't find supervisorctl in PATH
+2024-11-27 16:04:06,534 DEBUG cd /home/frappe/frappe-bench && bench build
+2024-11-27 16:04:06,645 INFO /usr/local/bin/bench build
+2024-11-27 16:04:39,163 INFO Bench /home/frappe/frappe-bench initialized
+2024-11-27 16:04:39,392 INFO /usr/local/bin/bench get-app --branch=v15.44.0 --resolve-deps erpnext https://github.com/frappe/erpnext
+2024-11-27 16:04:39,613 LOG Getting erpnext
+2024-11-27 16:04:39,614 DEBUG cd ./apps && git clone https://github.com/frappe/erpnext --branch v15.44.0 --depth 1 --origin upstream
+2024-11-27 16:04:43,441 LOG Installing erpnext
+2024-11-27 16:04:43,441 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/frappe/frappe-bench/apps/erpnext 
+2024-11-27 16:04:54,149 DEBUG cd /home/frappe/frappe-bench/apps/erpnext && yarn install --check-files
+2024-11-27 16:04:54,602 DEBUG bench build --app erpnext
+2024-11-27 16:04:54,712 INFO /usr/local/bin/bench build --app erpnext
+2024-11-27 16:04:57,125 WARNING restart failed: Couldn't find supervisorctl in PATH
+2024-12-01 00:40:42,290 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-01 00:40:42,290 INFO /usr/local/bin/bench schedule
+2024-12-01 00:40:42,290 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 00:40:42,290 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 00:40:46,133 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-01 00:40:47,136 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-01 00:40:48,191 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-01 00:40:49,223 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-01 00:40:50,296 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-01 00:40:52,815 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 00:40:53,147 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 01:43:01,582 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-01 01:47:58,290 INFO /usr/local/bin/bench new-site rice_mill
+2024-12-01 01:50:32,268 INFO /usr/local/bin/bench new-app rice_mill
+2024-12-01 01:50:32,290 LOG creating new app rice_mill
+2024-12-01 01:51:20,518 LOG Installing rice_mill
+2024-12-01 01:51:20,521 DEBUG cd /home/frappe/frappe-bench && /home/frappe/frappe-bench/env/bin/python -m pip install --quiet --upgrade -e /home/frappe/frappe-bench/apps/rice_mill 
+2024-12-01 01:51:27,329 DEBUG bench build --app rice_mill
+2024-12-01 01:51:27,593 INFO /usr/local/bin/bench build --app rice_mill
+2024-12-01 01:51:31,743 WARNING restart failed: Couldn't find supervisorctl in PATH
+2024-12-01 01:51:32,422 INFO A newer version of bench is available: 5.22.9 → 5.23.0
+2024-12-01 01:52:26,940 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-01 01:53:07,968 INFO /usr/local/bin/bench --site rice_mill install-app erpnext
+2024-12-01 01:58:02,817 INFO /usr/local/bin/bench --site rice_mill list-installed
+2024-12-01 01:59:52,264 INFO /usr/local/bin/bench use rice_mill
+2024-12-01 02:00:28,139 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-01 02:00:30,161 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 02:00:30,559 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-01 02:00:33,010 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 02:00:33,986 INFO /usr/local/bin/bench schedule
+2024-12-01 02:00:35,083 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-01 02:00:36,464 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-01 02:00:37,716 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-01 02:00:38,487 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-01 02:00:38,736 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-01 02:04:23,122 INFO /usr/local/bin/bench clear-cache
+2024-12-01 02:04:34,937 INFO /usr/local/bin/bench clear-website-cache
+2024-12-01 02:04:51,610 INFO /usr/local/bin/bench start
+2024-12-01 02:08:27,139 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 02:08:28,777 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-01 02:08:30,161 INFO /usr/local/bin/bench schedule
+2024-12-01 02:08:30,501 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-01 02:08:31,590 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 02:08:33,140 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-01 02:08:34,763 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-01 02:08:34,962 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-01 02:08:35,823 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-01 02:08:36,850 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-01 02:18:42,702 INFO /usr/local/bin/bench start
+2024-12-01 02:22:18,193 INFO /usr/local/bin/bench use
+2024-12-01 02:32:47,548 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-01 02:32:49,745 INFO /usr/local/bin/bench schedule
+2024-12-01 02:32:50,673 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 02:32:51,152 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 02:32:52,073 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-01 02:32:53,472 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-01 02:32:53,841 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-01 02:32:54,594 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-01 02:32:56,120 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-01 02:32:58,602 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-01 02:35:21,051 INFO /usr/local/bin/bench schedule
+2024-12-01 02:35:21,654 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 02:35:23,477 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-01 02:35:25,081 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 02:35:29,665 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-01 02:35:30,974 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-01 02:35:31,356 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-01 02:35:32,445 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-01 02:35:36,280 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-01 02:35:38,296 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-01 02:44:35,277 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 02:44:35,277 INFO /usr/local/bin/bench schedule
+2024-12-01 02:44:35,277 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 02:47:25,333 INFO /usr/local/bin/bench start
+2024-12-01 03:05:07,402 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-01 03:05:09,407 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-01 03:05:10,524 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-01 03:05:13,280 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-01 03:05:14,718 INFO /usr/local/bin/bench schedule
+2024-12-01 03:05:17,406 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-01 03:05:17,482 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-01 03:05:19,412 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-01 03:05:21,123 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-01 03:05:24,019 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-02 10:37:02,852 INFO /usr/local/bin/bench use rice_mill
+2024-12-02 10:40:17,748 INFO /usr/local/bin/bench use rice_mill
+2024-12-02 10:48:29,382 INFO /usr/local/bin/bench use rice_mill
+2024-12-03 19:44:39,904 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-03 19:48:29,512 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-03 19:48:47,386 INFO /usr/local/bin/bench stop
+2024-12-03 19:48:54,608 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-03 19:54:11,784 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-03 19:55:34,250 INFO /usr/local/bin/bench mariadb
+2024-12-03 19:56:46,321 INFO /usr/local/bin/bench --site rice_mill mysql
+2024-12-03 19:57:18,167 INFO /usr/local/bin/bench --site rice_mill mariadb
+2024-12-03 19:58:25,901 INFO /usr/local/bin/bench set-mariadb-root-password
+2024-12-03 19:58:46,007 INFO /usr/local/bin/bench update-mariadb-root-password 1234
+2024-12-03 20:12:42,521 INFO /usr/local/bin/bench --site rice_mill mariadb
+2024-12-03 20:14:09,143 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-03 20:14:11,084 INFO /usr/local/bin/bench schedule
+2024-12-03 20:14:11,967 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-03 20:14:13,261 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-03 20:14:14,358 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-03 20:14:15,238 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-03 20:14:15,378 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-03 20:14:16,308 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-03 20:14:17,295 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-03 20:14:18,307 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-03 20:15:50,800 INFO /usr/local/bin/bench --site rice_mill mariadb-root
+2024-12-03 20:16:04,855 INFO /usr/local/bin/bench --site rice_mill mariadb
+2024-12-03 20:17:54,650 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-03 20:17:54,665 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-03 20:17:55,918 INFO /usr/local/bin/bench schedule
+2024-12-03 20:17:56,105 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-03 20:17:58,524 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-03 20:17:58,976 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-03 20:18:00,422 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-03 20:18:01,543 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-03 20:18:02,558 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-03 20:18:04,177 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-03 20:20:28,642 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-03 20:23:57,065 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-03 20:29:46,252 INFO /usr/local/bin/bench --site rice_mill install-app rice_mill
+2024-12-03 20:43:04,904 INFO /usr/local/bin/bench start
+2024-12-07 22:01:36,720 INFO /usr/local/bin/bench set-config -g server_script_enabled 1
+2024-12-07 22:04:04,407 INFO /usr/local/bin/bench schedule
+2024-12-07 22:04:05,249 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-07 22:04:05,349 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-07 22:04:06,480 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-07 22:04:08,611 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-07 22:04:09,056 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-07 22:04:09,840 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-07 22:04:11,072 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-07 22:04:11,894 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-07 22:04:12,887 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-13 22:55:53,222 INFO /usr/local/bin/bench schedule
+2024-12-13 22:55:53,222 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-13 22:55:53,223 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-13 23:03:58,912 INFO /usr/local/bin/bench worker --queue long,default,short
+2024-12-13 23:04:08,547 INFO /usr/local/bin/bench schedule
+2024-12-13 23:04:10,735 INFO /usr/local/bin/bench worker --queue short,default
+2024-12-13 23:04:15,886 INFO /usr/local/bin/bench set-config -g db_host db
+2024-12-13 23:04:22,061 INFO /usr/local/bin/bench set-config -gp db_port 3306
+2024-12-13 23:04:23,040 INFO /usr/local/bin/bench set-config -g redis_cache redis://redis-cache:6379
+2024-12-13 23:04:25,194 INFO /usr/local/bin/bench set-config -g redis_queue redis://redis-queue:6379
+2024-12-13 23:04:27,399 INFO /usr/local/bin/bench set-config -g redis_socketio redis://redis-queue:6379
+2024-12-13 23:04:29,595 INFO /usr/local/bin/bench set-config -gp socketio_port 9000
+2024-12-13 23:04:37,625 INFO /usr/local/bin/bench new-site --mariadb-user-host-login-scope=% --admin-password=admin --db-root-username=root --db-root-password=admin --install-app erpnext --set-default frontend
+2024-12-15 21:17:27,483 INFO /usr/local/bin/bench mariadb
+2024-12-15 21:17:38,107 INFO /usr/local/bin/bench mysql

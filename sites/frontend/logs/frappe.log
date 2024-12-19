@@ -1,0 +1,141 @@
+2024-12-03 23:06:00,078 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'txt': '', 'doctype': 'Item', 'ignore_user_permissions': '0', 'reference_doctype': 'Rice Production', 'page_length': '10', 'filters': '{"parent_item":["=","Paddy"],"is_variant":["=",1]}', 'cmd': 'frappe.desk.search.search_link'}
+2024-12-03 23:06:31,627 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'txt': '', 'doctype': 'Item', 'ignore_user_permissions': '0', 'reference_doctype': 'Rice Production', 'page_length': '10', 'filters': '{"item_name":["like","Paddy%"],"is_variant":["=",1]}', 'cmd': 'frappe.desk.search.search_link'}
+2024-12-03 23:10:23,396 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'txt': '', 'doctype': 'Item', 'ignore_user_permissions': '0', 'reference_doctype': 'Rice Production', 'page_length': '10', 'filters': '{"item_name":["like","Paddy%"],"is_variant":["=",1]}', 'cmd': 'frappe.desk.search.search_link'}
+2024-12-07 22:06:28,472 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Rice Production","name":"new-rice-production-vtafzqvnjb","__islocal":1,"__unsaved":1,"owner":"Administrator","production_status":"Production Not Started","posting_date":"2024-12-08","source_warehouse":"Paddy - RM","target_warehouse":"Polished Rice - RM","paddy":"Paddy-1192 Rice","paddy_weight":2900}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2024-12-07 22:06:35,051 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc': '{"docstatus":0,"doctype":"Rice Production","name":"new-rice-production-vtafzqvnjb","__islocal":1,"__unsaved":1,"owner":"Administrator","production_status":"Production Not Started","posting_date":"2024-12-08","source_warehouse":"Paddy - RM","target_warehouse":"Polished Rice - RM","paddy":"Paddy-1192 Rice","paddy_weight":2900}', 'action': 'Save', 'cmd': 'frappe.desk.form.save.savedocs'}
+2024-12-08 19:58:51,952 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc': '{"name":"kb4fraoiie-1","owner":"Administrator","creation":"2024-12-08 03:10:01.421775","modified":"2024-12-08 03:14:05.958036","modified_by":"Administrator","docstatus":0,"idx":0,"production_status":"Production Not Started","posting_date":"2024-12-08","source_warehouse":"Paddy - RM","target_warehouse":"Polished Rice - RM","paddy":"Paddy-1192 Rice","paddy_weight":3900,"unpolished_rice":0,"husk_weight":0,"polished_rice":0,"amended_from":"kb4fraoiie","doctype":"Rice Production","__last_sync_on":"2024-12-08T19:58:48.716Z"}', 'action': 'Submit', 'cmd': 'frappe.desk.form.save.savedocs'}
+2024-12-08 19:59:08,385 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc': '{"name":"kb4fraoiie-1","owner":"Administrator","creation":"2024-12-08 03:10:01.421775","modified":"2024-12-08 03:14:05.958036","modified_by":"Administrator","docstatus":0,"idx":0,"production_status":"Production Not Started","posting_date":"2024-12-08","source_warehouse":"Paddy - RM","target_warehouse":"Polished Rice - RM","paddy":"Paddy-1192 Rice","paddy_weight":3900,"unpolished_rice":0,"husk_weight":0,"polished_rice":0,"amended_from":"kb4fraoiie","doctype":"Rice Production","__last_sync_on":"2024-12-08T19:58:48.716Z"}', 'action': 'Submit', 'cmd': 'frappe.desk.form.save.savedocs'}
+2024-12-08 20:24:11,185 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'new-rice-production-xfdwhhkghk', 'cmd': 'validate_stock'}
+2024-12-08 20:25:34,838 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'new-rice-production-ubisyxekwc', 'cmd': 'validate_stock'}
+2024-12-08 20:25:44,113 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'new-rice-production-ubisyxekwc', 'cmd': 'validate_stock'}
+2024-12-10 12:43:43,195 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'new-rice-production-kxutgwcovp', 'cmd': 'validate_stock'}
+2024-12-10 12:53:24,224 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'new-rice-production-zwqkghpdqv', 'cmd': 'validate_stock'}
+2024-12-10 12:55:52,112 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'new-rice-production-nqalxeffrp', 'cmd': 'validate_stock'}
+2024-12-10 12:56:16,224 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'kb4fraoiie-1', 'cmd': 'validate_stock'}
+2024-12-10 19:14:33,697 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001', 'cmd': 'start_husking'}
+2024-12-10 20:13:46,978 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-15', 'cmd': 'start_husking'}
+2024-12-10 20:18:20,962 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-15', 'cmd': 'start_husking'}
+2024-12-10 22:07:48,204 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'cmd': 'start_husking'}
+2024-12-13 22:19:43,463 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '100000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 22:37:30,270 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 22:38:25,550 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '0', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 22:38:45,421 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '2000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 22:39:36,606 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '2000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 22:39:51,734 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '0', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 22:49:33,176 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '0', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 22:58:15,429 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '0', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 23:00:41,918 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 23:05:12,968 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 23:06:33,653 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 23:12:29,261 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '0', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-13 23:12:44,113 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '0', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-14 22:59:40,008 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'paddy_weight': '8000', 'husk_weight': '1000', 'unpolished_rice': '7000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-15 11:36:08,956 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1500', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-15 11:39:28,670 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1500', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-15 11:41:37,827 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1500', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-15 11:47:53,304 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1500', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-15 11:49:27,813 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-15 11:50:55,724 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00001-26', 'husk_weight': '1000', 'script': 'Finish Husking', 'cmd': 'finish_husking'}
+2024-12-17 20:18:24,164 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00007', 'cmd': 'start_polishing'}
+2024-12-18 22:17:38,324 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00007', 'polished_rice': '50', 'waste': '30', 'unpolished_rice': '80', 'cmd': 'finish_polishing'}
+2024-12-18 22:19:30,754 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00007', 'polished_rice': '50', 'waste': '30', 'unpolished_rice': '80', 'cmd': 'finish_polishing'}
+2024-12-18 22:36:00,271 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'report_name': 'Stock Ledger', 'filters': '{"company":"Rice Mill","from_date":"2024-11-19","to_date":"2024-12-19","valuation_field_type":"Currency"}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2024-12-18 22:36:13,854 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'report_name': 'Stock Ledger', 'filters': '{"company":"Rice Mill","from_date":"2024-11-19","to_date":"2024-12-19","valuation_field_type":"Currency"}', 'ignore_prepared_report': 'false', 'are_default_filters': 'false', 'cmd': 'frappe.desk.query_report.run'}
+2024-12-18 22:36:14,132 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'report_name': 'Stock Ledger', 'filters': '{"company":"Rice Mill","from_date":"2024-11-19","to_date":"2024-12-19","valuation_field_type":"Currency"}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2024-12-18 22:37:10,915 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'report_name': 'Stock Ledger', 'filters': '{"company":"Rice Mill","from_date":"2024-11-19","to_date":"2024-12-19","valuation_field_type":"Currency"}', 'ignore_prepared_report': 'false', 'are_default_filters': 'false', 'cmd': 'frappe.desk.query_report.run'}
+2024-12-18 22:37:11,195 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'report_name': 'Stock Ledger', 'filters': '{"company":"Rice Mill","from_date":"2024-11-19","to_date":"2024-12-19","valuation_field_type":"Currency"}', 'ignore_prepared_report': 'false', 'are_default_filters': 'true', 'cmd': 'frappe.desk.query_report.run'}
+2024-12-18 22:47:52,177 ERROR frappe New Exception collected in error log
+Site: frontend
+Form Dict: {'doc_name': 'RP-ORD-2024-00009', 'polished_rice': '60', 'waste': '40', 'unpolished_rice': '100', 'paddy': 'Paddy-Super Rice', 'cmd': 'finish'}
