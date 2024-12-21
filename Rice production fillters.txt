@@ -1,0 +1,31 @@
+frappe.ui.form.on('Rice Production', {
+    refresh: function (frm) {
+        // Add a filter to the target_warehouse field
+        frm.set_query('target_warehouse', function () {
+            return {
+                filters: {
+                    parent_warehouse: 'Finished Goods - RM'
+                }
+            };
+        });
+        
+        frm.set_query('source_warehouse', function () {
+            return {
+                filters: {
+                    name: 'Paddy - RM'
+                }
+            };
+        });
+        
+        frm.set_query('paddy', function () {
+            return {
+                filters: {
+                    variant_of: ['=', 'Paddy']  // Filters to show only variants of the "Paddy" template
+                }
+            };
+        });
+        
+        
+
+    }
+});
