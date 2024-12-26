@@ -1,0 +1,55 @@
+# Create a custom Python script for rice item logic (inside your app)
+# rice_mill/rice_mill/doctype/rice_item/rice_item.py
+
+import frappe
+from frappe.model.document import Document
+
+class RiceItem(Document):
+    def validate(self):
+        # Example validation: Ensure item quantity is positive
+        if self.quantity <= 0:
+            frappe.throw("Quantity must be greater than zero.")
+
+    def after_insert(self):
+        # Logic to log item creation
+        frappe.msgprint(f"New Rice Item '{self.item_name}' created successfully!")
+
+# Hook to auto-set rice category
+@frappe.whitelist()
+def set_rice_category(item_name, category="Rice"):
+    item = frappe.get_doc("Item", item_name)
+    item.category = category
+    item.save()
+    return f"Category for {item_name} set to {category}."
+
+// rice_mill/rice_mill/public/js/rice_item.js
+
+frappe.ui.form.on('Rice Item', {
+    refresh: function(frm) {
+        frm.add_custom_button(__('Set Rice Category'), function() {
+            frappe.call({
+                method: "rice_mill.rice_mill.doctype.rice_item.rice_item.set_rice_category",
+                args: {
+                    item_name: frm.doc.name,
+                    category: "Rice"
+                },
+                callback: function(response) {
+                    frappe.msgprint(response.message);
+                    frm.reload_doc();
+                }
+            });
+        });
+    }
+});
+
+
+# rice_mill/hooks.py
+doc_events = {
+    "Rice Item": {
+        "validate": "rice_mill.rice_mill.doctype.rice_item.rice_item.validate",
+        "after_insert": "rice_mill.rice_mill.doctype.rice_item.rice_item.after_insert"
+    }
+}
+
+app_include_js = "/assets/rice_mill/js/rice_item.js"
+
