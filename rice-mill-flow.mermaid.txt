@@ -1,0 +1,37 @@
+flowchart TB
+    Start(["Start: User Logs into System"]) --> OrderMgmt{Order Management}
+    
+    OrderMgmt --> |Options| Order1["Add New Order"]
+    OrderMgmt --> |Options| Order2["Check Order Status"]
+    OrderMgmt --> |Options| Order3["Update Payment Information"]
+    
+    Order1 & Order2 & Order3 --> Inventory{Inventory Management}
+    
+    Inventory --> |Options| Inv1["Check Stock Levels"]
+    Inventory --> |Options| Inv2["Add/Update Raw Materials"]
+    Inventory --> |Options| Inv3["Generate Stock Report"]
+    
+    Inv1 & Inv2 & Inv3 --> Production{Production Planning}
+    
+    Production --> |Options| Prod1["Set Daily Production Targets"]
+    Production --> |Options| Prod2["Record Processed Rice"]
+    Production --> |Options| Prod3["Generate Production Report"]
+    
+    Prod1 & Prod2 & Prod3 --> Finance{Financial Management}
+    
+    Finance --> |Options| Fin1["Add Payment Details"]
+    Finance --> |Options| Fin2["Generate Profit/Loss Report"]
+    Finance --> |Options| Fin3["View Buyer/Seller Ledgers"]
+    
+    Fin1 & Fin2 & Fin3 --> Reports{Reports & Analytics}
+    
+    Reports --> |Options| Rep1["View Sales Summary"]
+    Reports --> |Options| Rep2["View Monthly Trends"]
+    Reports --> |Options| Rep3["Download Reports"]
+    
+    Rep1 & Rep2 & Rep3 --> End(["End: System Logs Out"])
+    
+    classDef process fill:#f9f,stroke:#333,stroke-width:2px
+    classDef option fill:#bbf,stroke:#333,stroke-width:1px
+    class Start,End process
+    class Order1,Order2,Order3,Inv1,Inv2,Inv3,Prod1,Prod2,Prod3,Fin1,Fin2,Fin3,Rep1,Rep2,Rep3 option
