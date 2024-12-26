@@ -1,0 +1,205 @@
+# rice_mill/rice_mill/custom/rice_processing.py
+
+import frappe
+from frappe import _
+from frappe.model.document import Document
+from frappe.utils import flt, today
+
+class RiceProcessing(Document):
+    def validate(self):
+        self.calculate_yield()
+        self.validate_quantities()
+        
+    def calculate_yield(self):
+        """Calculate the yield percentages for different rice grades"""
+        if self.input_quantity:
+            self.grade_a_yield_percent = flt((self.grade_a_quantity / self.input_quantity) * 100, 2)
+            self.grade_b_yield_percent = flt((self.grade_b_quantity / self.input_quantity) * 100, 2)
+            self.broken_rice_yield_percent = flt((self.broken_rice_quantity / self.input_quantity) * 100, 2)
+            self.husk_yield_percent = flt((self.husk_quantity / self.input_quantity) * 100, 2)
+            
+    def validate_quantities(self):
+        """Ensure total output doesn't exceed input"""
+        total_output = (
+            flt(self.grade_a_quantity) +
+            flt(self.grade_b_quantity) +
+            flt(self.broken_rice_quantity) +
+            flt(self.husk_quantity)
+        )
+        
+        if total_output > self.input_quantity:
+            frappe.throw(_("Total output quantity cannot exceed input quantity"))
+
+    def on_submit(self):
+        self.update_inventory()
+        self.create_quality_inspection()
+        
+    def update_inventory(self):
+        """Update stock entries for all rice grades"""
+        warehouse = frappe.db.get_single_value('Rice Mill Settings', 'default_warehouse')
+        
+        # Create stock entry for finished goods
+        stock_entry = frappe.get_doc({
+            'doctype': 'Stock Entry',
+            'stock_entry_type': 'Manufacture',
+            'posting_date': today(),
+            'items': [
+                {
+                    'item_code': self.paddy_item_code,
+                    's_warehouse': self.source_warehouse,
+                    'qty': self.input_quantity,
+                    'basic_rate': self.paddy_rate
+                },
+                {
+                    'item_code': 'GRADE-A-RICE',
+                    't_warehouse': warehouse,
+                    'qty': self.grade_a_quantity
+                },
+                {
+                    'item_code': 'GRADE-B-RICE',
+                    't_warehouse': warehouse,
+                    'qty': self.grade_b_quantity
+                },
+                {
+                    'item_code': 'BROKEN-RICE',
+                    't_warehouse': warehouse,
+                    'qty': self.broken_rice_quantity
+                },
+                {
+                    'item_code': 'RICE-HUSK',
+                    't_warehouse': warehouse,
+                    'qty': self.husk_quantity
+                }
+            ]
+        })
+        stock_entry.insert()
+        stock_entry.submit()
+
+    def create_quality_inspection(self):
+        """Create quality inspection record for the batch"""
+        qi = frappe.get_doc({
+            'doctype': 'Quality Inspection',
+            'inspection_type': 'In Process',
+            'reference_type': 'Rice Processing',
+            'reference_name': self.name,
+            'inspected_by': frappe.session.user,
+            'readings': [
+                {
+                    'specification': 'Moisture Content',
+                    'reading_1': self.moisture_content
+                },
+                {
+                    'specification': 'Broken Rice Percentage',
+                    'reading_1': self.broken_rice_yield_percent
+                }
+            ]
+        })
+        qi.insert()
+        qi.submit()
+
+# rice_mill/rice_mill/custom/rice_mill_settings.py
+
+class RiceMillSettings(Document):
+    pass
+
+# rice_mill/rice_mill/custom/batch_blend.py
+
+class BatchBlending(Document):
+    def validate(self):
+        self.validate_quantities()
+        
+    def validate_quantities(self):
+        """Ensure blending quantities are valid"""
+        total_blend = sum(flt(d.quantity) for d in self.blend_items)
+        if total_blend != self.target_quantity:
+            frappe.throw(_("Total blend quantity must equal target quantity"))
+
+    def on_submit(self):
+        self.create_blend_stock_entry()
+        
+    def create_blend_stock_entry(self):
+        """Create stock entry for blending operation"""
+        warehouse = frappe.db.get_single_value('Rice Mill Settings', 'default_warehouse')
+        
+        stock_entry = frappe.get_doc({
+            'doctype': 'Stock Entry',
+            'stock_entry_type': 'Repack',
+            'posting_date': today(),
+            'items': []
+        })
+        
+        # Add source items
+        for item in self.blend_items:
+            stock_entry.append('items', {
+                'item_code': item.item_code,
+                's_warehouse': warehouse,
+                'qty': item.quantity
+            })
+        
+        # Add target blend
+        stock_entry.append('items', {
+            'item_code': self.target_item_code,
+            't_warehouse': warehouse,
+            'qty': self.target_quantity
+        })
+        
+        stock_entry.insert()
+        stock_entry.submit()
+
+# Custom DocTypes JSON files:
+
+# rice_mill/rice_mill/custom/doctype/rice_processing/rice_processing.json
+{
+    "name": "Rice Processing",
+    "doctype": "DocType",
+    "module": "Rice Mill",
+    "custom": 1,
+    "is_submittable": 1,
+    "fields": [
+        {
+            "fieldname": "input_quantity",
+            "label": "Input Paddy Quantity",
+            "fieldtype": "Float",
+            "reqd": 1
+        },
+        {
+            "fieldname": "paddy_item_code",
+            "label": "Paddy Item Code",
+            "fieldtype": "Link",
+            "options": "Item",
+            "reqd": 1
+        },
+        {
+            "fieldname": "source_warehouse",
+            "label": "Source Warehouse",
+            "fieldtype": "Link",
+            "options": "Warehouse",
+            "reqd": 1
+        },
+        {
+            "fieldname": "grade_a_quantity",
+            "label": "Grade A Rice Quantity",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "grade_b_quantity",
+            "label": "Grade B Rice Quantity",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "broken_rice_quantity",
+            "label": "Broken Rice Quantity",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "husk_quantity",
+            "label": "Husk Quantity",
+            "fieldtype": "Float"
+        },
+        {
+            "fieldname": "moisture_content",
+            "label": "Moisture Content (%)",
+            "fieldtype": "Float"
+        }
+    ]
+}
